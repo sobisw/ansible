@@ -1,0 +1,41 @@
+Default Ansible Config File: /etc/ansible/ansible.cfg
+
+By default, ANSIBLE_CONFIG value will be taken. If not found it will look for ansible.cfg in current working directory then fall back to home directory and look for .ansible.cfg. If not found anywhere it will look at /etc/ansible location.
+
+Anything in configuration file can be overwritten in playbook or environment variable.
+
+Need to focus on these parameters
+
+Inventory  =  /etc/ansible/hosts
+sudo_user  =   root
+ask_sudo_pass  =  true
+roles_path  =  /etc/ansible/roles
+host_key_checking  =  False
+log_path  =  /var/log/ansible.log
+
+* Prefer disable SELinux to resolve any connectivity issue
+
+
+HOSTS File
+
+Default Host file: /etc/ansible/hosts
+
+[local]
+localhost
+127.0.0.1
+
+[apacheweb]
+1.2.3.4
+web.domain.com
+web
+
+We can update ansible.cfg file , inventory parameter to any file. Also we can use “-i" option to overwrite default hosts file e.g.  
+
+ansible apacheweb -i hosts -m ping
+
+To view all hosts - 
+
+
+ansible all --list-hosts
+
+
