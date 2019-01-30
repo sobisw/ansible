@@ -1,3 +1,5 @@
+Ansible Config
+
 Default Ansible Config File: /etc/ansible/ansible.cfg
 
 By default, ANSIBLE_CONFIG value will be taken. If not found it will look for ansible.cfg in current working directory then fall back to home directory and look for .ansible.cfg. If not found anywhere it will look at /etc/ansible location.
