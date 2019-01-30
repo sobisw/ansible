@@ -15,6 +15,7 @@ log_path  =  /var/log/ansible.log
 
 * Prefer disable SELinux to resolve any connectivity issue
 
+===============================================================================================
 
 HOSTS File
 
