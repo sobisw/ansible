@@ -23,7 +23,10 @@
 
   tasks:
     - name: date/time for starting the job
-      raw: date > /home/cloud_user/start.log
+      command: date
+      register: start_time
+
+    - debug: var=start_time
 
     - name: Install {{ package_name }} at {{ app_server }}
       yum: pkg={{ package }}  state={{ state }}  update_cache=true
@@ -33,9 +36,12 @@
       notify: Restart HTTPD
 
     - name: date / time for ending the job
-      raw: date > /home/cloud_user/end.log
+      command: date
+      register: end_time
 
-# Handler Section
+    - debug: var=end_time
+
+#Handdler Section
 
   handlers:
     - name: Restart HTTPD
