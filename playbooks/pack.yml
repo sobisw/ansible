@@ -1,0 +1,2 @@
+- name: Install Cowsay
+  yum: pkg=cowsay state=latest

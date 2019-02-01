@@ -1,0 +1,15 @@
+--- # Template example
+
+- hosts: local
+  gather_facts: yes
+  become: yes
+  vars:
+    User: Sourav
+    password: password
+    Connectivity: SSH
+  tasks:
+
+# Replace all variable in Jinja file
+
+  - name:  Template example
+    template: src=templates/dummy.conf.j2 dest=/home/cloud_user/dummy.conf owner=cloud_user group=cloud_user mode=750

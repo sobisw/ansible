@@ -1,0 +1,16 @@
+--- # Local Action example
+
+- hosts: apacheweb
+  become: yes
+  gather_facts: yes
+  tasks:
+  - name: local action
+    local_action: command ping -c 4 debibiswas2c
+
+  - name: install
+    yum: pkg=tree state=latest
+
+###################################################################################
+# We can use deleget_to instead of local_action                                   # 
+# changed: [<remote server> -> localhost] -->  delegate from remote to local host #
+###################################################################################

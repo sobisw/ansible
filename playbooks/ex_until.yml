@@ -1,0 +1,19 @@
+--- # until example
+
+- hosts: apacheweb
+  sudo: yes
+  gather_facts: no
+  tasks:
+  - name: Install apache
+    yum: pkg=httpd state=installed
+
+# Loop Until
+
+  - name: Get service status
+    shell: systemctl status httpd
+    register: result
+    until: result.stdout.find("active (running)") != -1
+    retries: 3
+    delay: 3
+
+  - debug: var=result

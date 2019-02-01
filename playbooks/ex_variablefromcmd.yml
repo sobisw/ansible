@@ -1,0 +1,12 @@
+--- # Variable from command line
+
+- hosts: "{{ host }}"
+  become: yes
+  gather_facts: no
+  tasks:
+  - name:  install given package
+    yum: pkg={{ package }} state=latest
+
+###########################################################################################
+# Usage:  ansible-playbook ex_variablefromcmd.yml  --extra-vars "host=local package=tree" #
+###########################################################################################

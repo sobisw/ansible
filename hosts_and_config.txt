@@ -56,4 +56,15 @@ ansible apacheweb -a "filter=ansible_memtotal_mb" -m setup
 ansible apacheweb -a "filter=ansible_proc*" -m setup
 ansible apacheweb -a "filter=ansible_virt*" -m setup
 
+==============================================================
+ansible-vault create secure.yml
+ansible-vault encrypt passfile.yml
 
+==================================================================================================================
+START AT AND STEP
+
+ansible-playbook <name> --start-at-task "task name"  -> It will start from the specific task and continue
+ansible-playbook <name> --tags <TAG>  ->  It will execute the task with specific tag. To skip use --skip-tag
+ansible-playbook <name> --step  -> It will ask for confirmation for each tasks (y/n/c)
+
+====================================================================================================================

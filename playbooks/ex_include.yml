@@ -1,0 +1,19 @@
+--- # Include example
+
+- hosts: local
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+
+# include another file
+
+  - include: pack.yml
+
+  - name: verify installation successful
+    raw: yum list installed | grep cowsay
+    register: result
+
+  - debug: var=result
+  
+

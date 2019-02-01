@@ -1,0 +1,14 @@
+--- # Ignore error example
+
+- hosts: local
+  become: yes
+  gather_facts: no
+  tasks:
+
+# Ignore errors - Basic way of error handling
+
+  - name: command that failed
+    shell: /bin/false
+    ignore_errors: yes
+  - name: install telnet
+    yum: pkg=telnet state=latest

@@ -1,0 +1,23 @@
+--- # TAGS example
+
+- hosts: local
+  connection: ssh
+  become: yes
+  gather_facts: no
+  tasks:
+  - name:  Install Lynx
+    yum: pkg=lynx state=latest
+    tags:
+    - install
+
+  - name: verify lynx is installed
+    raw: yum list installed | grep lynx
+    register: result
+    tags:
+    - verification
+
+  - debug: var=result
+
+################################################################################################################
+# To run -> ansible=playbool ex_tags.yml --tags "install" | ansible=playbool ex_tags.yml --skip-tags "install" #
+################################################################################################################
