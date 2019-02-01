@@ -1,4 +1,4 @@
---- # Asynchonoirn
+--- # Asynchonous polling
 
 - hosts: all
   become: yes
