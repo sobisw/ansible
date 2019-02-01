@@ -1,0 +1,14 @@
+--- # Loop Example
+
+- hosts: local
+  gather_facts: no
+  become: yes
+  tasks:
+
+# Looping example
+  - name: Add multiple users
+    user: name={{ item }} state=present
+    with_items:
+    - user1
+    - user2
+    - user3

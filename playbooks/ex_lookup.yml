@@ -1,0 +1,14 @@
+--- # Example for Lookup
+
+- hosts: local
+  gather_facts: no
+  become: yes
+  tasks:
+
+# Get data from CSV
+  - name: Lookup data from CSV
+    debug: msg="{{ lookup('csvfile', 'F file=values.csv delimiter=, default=NOMATCH') }}"
+
+# Get Environment Variable
+  - name: Lookup environemnt variable
+    debug: msg="{{ lookup('env', 'HOME') }}"

@@ -1,0 +1,11 @@
+--- # Example for run once
+
+- hosts: all
+  become: yes
+  gather_facts: no
+  tasks:
+
+# This will only run to a single server
+  - name: run once
+    command: uptime > /home/cloud_user/file.log
+    run_once: true

@@ -1,0 +1,16 @@
+--- # Condition example
+
+- hosts: local
+  become: yes
+  gather_facts: yes
+  tasks:
+
+# Based on OS type installer will be picked 
+
+  - name: For Debian
+    apt: pkg=httpd state=installed
+    when: ansible_os_family == "Debian"
+
+  - name: For RedHat / CentOS
+    yum: pkg=httpd state=installed
+    when: ansible_os_family == "RedHat"
