@@ -57,8 +57,8 @@ ansible apacheweb -a "filter=ansible_proc*" -m setup
 ansible apacheweb -a "filter=ansible_virt*" -m setup
 
 ==============================================================
-ansible-vault create secure.yml
-ansible-vault encrypt passfile.yml
+ansible-vault create secure.yml -> create a new file with encrypted data
+ansible-vault encrypt passfile.yml -> Encrypt data of a existing file
 
 ==================================================================================================================
 START AT AND STEP
